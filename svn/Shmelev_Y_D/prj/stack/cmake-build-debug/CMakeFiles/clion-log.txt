@@ -1,0 +1,2 @@
+Cannot generate 'Debug' into /home/yura/oop/svn/Shmelev_Y_D/prj/stack/cmake-build-debug
+Only in-source generation will be performed.

@@ -1,0 +1,1 @@
+/usr/bin/g++-7   -std=c++17 -Wall -g  -rdynamic CMakeFiles/stack_test.dir/stack_test.cpp.o CMakeFiles/stack_test.dir/stack.cpp.o  -o stack_test 
