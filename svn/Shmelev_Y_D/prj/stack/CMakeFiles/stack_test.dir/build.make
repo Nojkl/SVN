@@ -60,15 +60,15 @@ include CMakeFiles/stack_test.dir/flags.make
 CMakeFiles/stack_test.dir/stack_test.cpp.o: CMakeFiles/stack_test.dir/flags.make
 CMakeFiles/stack_test.dir/stack_test.cpp.o: stack_test.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yura/oop/svn/Shmelev_Y_D/prj/stack/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/stack_test.dir/stack_test.cpp.o"
-	/usr/bin/g++-7  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/stack_test.dir/stack_test.cpp.o -c /home/yura/oop/svn/Shmelev_Y_D/prj/stack/stack_test.cpp
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/stack_test.dir/stack_test.cpp.o -c /home/yura/oop/svn/Shmelev_Y_D/prj/stack/stack_test.cpp
 
 CMakeFiles/stack_test.dir/stack_test.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/stack_test.dir/stack_test.cpp.i"
-	/usr/bin/g++-7 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/yura/oop/svn/Shmelev_Y_D/prj/stack/stack_test.cpp > CMakeFiles/stack_test.dir/stack_test.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/yura/oop/svn/Shmelev_Y_D/prj/stack/stack_test.cpp > CMakeFiles/stack_test.dir/stack_test.cpp.i
 
 CMakeFiles/stack_test.dir/stack_test.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/stack_test.dir/stack_test.cpp.s"
-	/usr/bin/g++-7 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/yura/oop/svn/Shmelev_Y_D/prj/stack/stack_test.cpp -o CMakeFiles/stack_test.dir/stack_test.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/yura/oop/svn/Shmelev_Y_D/prj/stack/stack_test.cpp -o CMakeFiles/stack_test.dir/stack_test.cpp.s
 
 CMakeFiles/stack_test.dir/stack_test.cpp.o.requires:
 
@@ -84,15 +84,15 @@ CMakeFiles/stack_test.dir/stack_test.cpp.o.provides.build: CMakeFiles/stack_test
 CMakeFiles/stack_test.dir/stack.cpp.o: CMakeFiles/stack_test.dir/flags.make
 CMakeFiles/stack_test.dir/stack.cpp.o: stack.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yura/oop/svn/Shmelev_Y_D/prj/stack/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/stack_test.dir/stack.cpp.o"
-	/usr/bin/g++-7  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/stack_test.dir/stack.cpp.o -c /home/yura/oop/svn/Shmelev_Y_D/prj/stack/stack.cpp
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/stack_test.dir/stack.cpp.o -c /home/yura/oop/svn/Shmelev_Y_D/prj/stack/stack.cpp
 
 CMakeFiles/stack_test.dir/stack.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/stack_test.dir/stack.cpp.i"
-	/usr/bin/g++-7 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/yura/oop/svn/Shmelev_Y_D/prj/stack/stack.cpp > CMakeFiles/stack_test.dir/stack.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/yura/oop/svn/Shmelev_Y_D/prj/stack/stack.cpp > CMakeFiles/stack_test.dir/stack.cpp.i
 
 CMakeFiles/stack_test.dir/stack.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/stack_test.dir/stack.cpp.s"
-	/usr/bin/g++-7 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/yura/oop/svn/Shmelev_Y_D/prj/stack/stack.cpp -o CMakeFiles/stack_test.dir/stack.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/yura/oop/svn/Shmelev_Y_D/prj/stack/stack.cpp -o CMakeFiles/stack_test.dir/stack.cpp.s
 
 CMakeFiles/stack_test.dir/stack.cpp.o.requires:
 
