@@ -1,3 +1,0 @@
-/home/yura/oop/svn/Shmelev_Y_D/prj/stack/CMakeFiles/rebuild_cache.dir
-/home/yura/oop/svn/Shmelev_Y_D/prj/stack/CMakeFiles/stack_test.dir
-/home/yura/oop/svn/Shmelev_Y_D/prj/stack/CMakeFiles/edit_cache.dir
