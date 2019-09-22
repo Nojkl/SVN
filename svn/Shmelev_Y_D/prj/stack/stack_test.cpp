@@ -1,134 +1,111 @@
+#define CATCH_CONFIG_MAIN  // This tells Catch to provide a main() - only do this in one cpp file
+
 #include "stack.h"
 
+#include "catch2/catch.hpp"
 #include <iostream>
 
-void TestPush() {
+TEST_CASE("Test Push") {
     auto stack = Stack();
-    bool all_is_ok = true;
     stack.Push(5);
-    if (stack.Top() != 5) {
-        std::cout << "error: " << stack.Top() << " != 5\n";
-        all_is_ok = false;
-    }
+    REQUIRE(stack.Top() == 5);
     stack.Push(6);
-    if (stack.Top() != 6) {
-        std::cout << "error: " << stack.Top() << " != 6\n";
-        all_is_ok = false;
-    }
+    REQUIRE(stack.Top() == 6);
     stack.Push(7);
-    if (stack.Top() != 7) {
-        std::cout << "error: " << stack.Top() << " != 7\n";
-        all_is_ok = false;
-    }
-    if (all_is_ok) {
-        std::cout << "TestPush successfully finished!\n";
-    }
+    REQUIRE(stack.Top() == 7);
 }
 
-void TestPop() {
+
+TEST_CASE("Test Top") {
+    auto stack = Stack();
+    stack.Push(500);
+    REQUIRE(stack.Top() == 500);
+    stack.Push(600);
+    REQUIRE(stack.Top() == 600);
+    stack.Push(800);
+    REQUIRE(stack.Top() == 800);
+    stack.Pop();
+    REQUIRE(stack.Top() == 600);
+    stack.Pop();
+    REQUIRE(stack.Top() == 500);
+    stack.Pop();
+    REQUIRE_THROWS(stack.Top());
+}
+
+TEST_CASE("Test Pop") {
     auto stack = Stack();
     bool all_is_ok = true;
     stack.Pop();
     stack.Push(5);
     stack.Push(6);
     stack.Pop();
-    if (stack.Top() != 5) {
-        std::cout << "error: " << stack.Top() << " != 5\n";
-        all_is_ok = false;
-    }
-    if (all_is_ok) {
-        std::cout << "TestPop successfully finished!\n";
-    }
+    REQUIRE(stack.Top() == 5);
+    stack.Pop();
+    REQUIRE_THROWS(stack.Top());
 }
 
-void TestIsEmpty() {
+TEST_CASE("Test IsEmpty") {
     auto stack = Stack();
-    bool all_is_ok = true;
-    if (!stack.IsEmpty()) {
-        std::cout << "error: stack isn't empty!\n";
-        all_is_ok = false;
-    }
+    REQUIRE(stack.IsEmpty());
     stack.Push(5);
-    if (stack.IsEmpty()) {
-        std::cout << "error: stack is empty!\n";
-        all_is_ok = false;
-    }
+    REQUIRE(!stack.IsEmpty());
     stack.Pop();
-    if (!stack.IsEmpty()) {
-        std::cout << "error: stack isn't empty!\n";
-        all_is_ok = false;
-    }
-    if (all_is_ok) {
-        std::cout << "TestIsEmpty successfully finished!\n";
-    }
+    REQUIRE(stack.IsEmpty());
 }
 
-void TestTop() {
+TEST_CASE("Test deep copy") {
     auto stack = Stack();
-    bool all_is_ok = true;
-    stack.Push(500);
-    if (stack.Top() != 500) {
-        std::cout << "error: " << stack.Top() << " != 500\n";
-        all_is_ok = false;
-    }
-    stack.Push(600);
-    if (stack.Top() != 600) {
-        std::cout << "error: " << stack.Top() << " != 600\n";
-        all_is_ok = false;
-    }
-    stack.Push(800);
-    if (stack.Top() != 800) {
-        std::cout << "error: " << stack.Top() << " != 800\n";
-        all_is_ok = false;
-    }
+    stack.Push(1);
+    stack.Push(2);
+    stack.Push(3);
+    auto copy = Stack(stack);
+    copy.Push(99);
+    REQUIRE(copy.Top() == 99);
+    stack.Push(88);
+    REQUIRE(stack.Top() == 88);
+    REQUIRE(copy.Top() == 99);
     stack.Pop();
-    if (stack.Top() != 600) {
-        std::cout << "error: " << stack.Top() << " != 600\n";
-        all_is_ok = false;
-    }
+    copy.Pop();
+    REQUIRE(stack.Top() == copy.Top());
     stack.Pop();
-    if (stack.Top() != 500) {
-        std::cout << "error: " << stack.Top() << " != 500\n";
-        all_is_ok = false;
-    }
-    if (all_is_ok) {
-        std::cout << "TestTop successfully finished!\n";
-    }
+    copy.Pop();
+    REQUIRE(stack.Top() == copy.Top());
+    stack.Pop();
+    copy.Pop();
+    REQUIRE(stack.Top() == copy.Top());
 }
 
-void TestAllInAllOut() {
+TEST_CASE("Deep assignment") {
     auto stack = Stack();
-    bool all_is_ok = true;
+    stack.Push(5);
+    stack.Push(6);
+    stack.Push(7);
+    auto copy = stack;
+    copy.Push(1);
+    REQUIRE(copy.Top() == 1);
+    stack.Push(0);
+    REQUIRE(stack.Top() == 0);
+    REQUIRE(copy.Top() == 1);
+    stack.Pop();
+    copy.Pop();
+    REQUIRE(stack.Top() == copy.Top());
+    stack.Pop();
+    copy.Pop();
+    REQUIRE(stack.Top() == copy.Top());
+    stack.Pop();
+    copy.Pop();
+    REQUIRE(stack.Top() == copy.Top());
+}
+
+TEST_CASE("All in All out") {
+    auto stack = Stack();
     for (int i = 0; i < 1000; ++i) {
         stack.Push(i);
-        if (stack.Top() != i) {
-            std::cout << "error: " << stack.Top() << " != " << i << '\n';
-            all_is_ok = false;
-            break;
-        }
+        REQUIRE(stack.Top() == i);
     }
     for (int i = 999; i >= 0; --i) {
-        if (stack.Top() != i) {
-            std::cout << "error: " << stack.Top() << " != " << i << '\n';
-            all_is_ok = false;
-            break;
-        }
+        REQUIRE(stack.Top() == i);
         stack.Pop();
     }
-    if (all_is_ok) {
-        std::cout << "TestAllInAllOut successfully finished!\n";
-    }
 }
 
-void RunTests() {
-    TestPush();
-    TestPop();
-    TestIsEmpty();
-    TestTop();
-    TestAllInAllOut();
-}
-
-int main(int argc, char const *argv[]) {
-    RunTests();
-    return 0;
-}

@@ -1,11 +1,28 @@
 #include "stack.h"
 
 #include <stdexcept>
+#include <algorithm>
 
 Stack::Stack(size_t cap) {
-    begin_ = new int [cap];
+    begin_ = new int[cap];
     end_ = begin_;
     capacity_ = end_ + cap;
+}
+
+Stack::Stack(const Stack &rhs) {
+    begin_ = new int[rhs.capacity_ - rhs.begin_];
+    end_ = begin_ + (rhs.end_ - rhs.begin_);
+    capacity_ = begin_ + (rhs.capacity_ - rhs.begin_);
+    for (size_t i = 0; i < end_ - begin_; ++i) {
+        *(begin_ + i) = *(rhs.begin_ + i);
+    }
+}
+
+Stack& Stack::operator=(Stack rhs) {
+    std::swap(begin_, rhs.begin_);
+    std::swap(end_, rhs.end_);
+    std::swap(capacity_, rhs.capacity_);
+    return *this;
 }
 
 Stack::~Stack() {
@@ -47,3 +64,4 @@ int Stack::Top() {
 bool Stack::IsEmpty() {
     return end_ == begin_;
 }
+

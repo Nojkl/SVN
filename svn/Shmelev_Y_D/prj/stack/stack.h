@@ -1,8 +1,14 @@
+#pragma once
+
 #include <cstddef>
 
 class Stack {
 public:
-    Stack(size_t cap = 1);
+    explicit Stack(size_t cap = 1);
+
+    Stack(const Stack& rhs);
+
+    Stack& operator=(Stack rhs);
 
     void Push(int elem);
 
