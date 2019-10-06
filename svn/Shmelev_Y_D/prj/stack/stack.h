@@ -3,27 +3,27 @@
 #include <cstddef>
 
 class Stack {
-public:
-    explicit Stack(size_t cap = 1);
+ public:
+  explicit Stack(size_t cap = 1);
 
-    Stack(const Stack& rhs);
+  Stack(const Stack& rhs);
 
-    Stack& operator=(Stack rhs);
+  Stack& operator=(Stack rhs);
 
-    void Push(int elem);
+  void Push(int elem);
 
-    void Pop();
+  void Pop();
 
-    int Top();
+  int Top();
 
-    bool IsEmpty();
+  bool IsEmpty();
 
-    ~Stack();
+  ~Stack();
 
-private:
-    void Reallocate(size_t cap);
+ private:
+  void Reallocate(size_t cap);
 
-    int* begin_;
-    int* end_;
-    int* capacity_;
+  int* begin_;
+  int* end_;
+  int* capacity_;
 };
